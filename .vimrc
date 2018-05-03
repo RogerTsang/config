@@ -18,6 +18,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'mhinz/vim-signify'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-fugitive'
 
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,6 +37,9 @@ set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:closetag_filenames = '*.html,*.xml,*.js'
 let g:closetag_shortcut = '>'
+
+let g:ctrlp_custom_ignore = 'node_modules\|.git\|git'
+let g:ctrlp_max_depth = 10
 
 let g:tagbar_map_openfold = '+'
 let g:tagbar_map_closefold = '_'
@@ -59,6 +63,7 @@ nmap <silent> <F2> :tabprev<CR>
 nmap <silent> <F3> :tabnew<CR>
 nmap <silent> <F4> :tabnext<CR>
 nmap <silent> <F5> :NERDTreeToggle<CR>
+nmap <silent> <C-B> :Gblame<CR>
 nmap <silent> <F6> :CtrlP .<CR>
 set pastetoggle=<F7>
 nmap <silent> <F8> :TagbarToggle<CR>
@@ -84,11 +89,6 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
