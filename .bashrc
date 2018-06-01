@@ -3,7 +3,7 @@
 # for examples
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
-  ssh-add ~/.ssh/hzeng
+  # Add your ssh identity here
 fi
 
 # If not running interactively, don't do anything
@@ -128,15 +128,20 @@ source ~/.bash-git-prompt/gitprompt.sh
 
 # personal shortcuts
 alias xclip='xclip -selection clipboard -silent -i'
+alias vim='nvim'
 function rfind () {
     find . -iname "$1"
 }
 
 function rgrep () {
-    grep \
-        --exclude-dir="node_modules" \
-        --exclude-dir="build" \
-        --exclude-dir=".mypy_cache" \
-        --exclude-dir=".git" \
-        -e "${*:1}" . -r --ignore-case --color=auto -n -I 
+    if hash rg 2>/dev/null; then
+        rg -g "!node_modules/" -g "!build/" -g "!.mypy_cache/" -g "!.git/" -i "${*:1}"
+    else
+        grep \
+            --exclude-dir="node_modules" \
+            --exclude-dir="build" \
+            --exclude-dir=".mypy_cache" \
+            --exclude-dir=".git" \
+            -e "${*:1}" . -r --ignore-case --color=auto -n -I 
+    fi
 }
