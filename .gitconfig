@@ -1,6 +1,6 @@
 [user]
-    email = 
-    name = 
+    email = zenghanzhang46@gmail.com
+    name = Roger Tsang
 
 [core]
     editor = vim
@@ -45,7 +45,7 @@
 
 [alias]
     b = branch
-    c = commit -m
+    c = checkout
     d = diff
     l = log
     s = status

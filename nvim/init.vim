@@ -6,20 +6,21 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/hanzhangzeng/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/hanzhangzeng/.vim/dein')
-    call dein#begin('/home/hanzhangzeng/.vim/dein')
+if dein#load_state('$HOME/.vim/dein')
+    call dein#begin('$HOME/.vim/dein')
 
     " Let dein manage dein
     " Required:
-    call dein#add('/home/hanzhangzeng/.vim/dein/repos/github.com/Shougo/dein.vim')
+    call dein#add('$HOME/.vim/dein/repos/github.com/Shougo/dein.vim')
 
     " Add or remove your plugins here:
     call dein#add('kien/ctrlp.vim')
     call dein#add('editorconfig/editorconfig-vim')
     call dein#add('scrooloose/nerdtree')
+    call dein#add('jistr/vim-nerdtree-tabs')
     call dein#add('majutsushi/tagbar')
     call dein#add('bling/vim-airline')
     call dein#add('flazz/vim-colorschemes')
